@@ -381,7 +381,9 @@ $(function () {
       this._fetchTimeout && clearTimeout(this._fetchTimeout)
       this._fetchRequest = $.get('api', {
         job: this.currentRequest.get('job'),
-        state: this.currentRequest.get('state')
+        state: this.currentRequest.get('state'),
+        page: this.currentRequest.get('page'),
+        search: this.currentRequest.get('search')
       }).success(this.resultsFetched)
     },
     resultsFetched: function (results) {

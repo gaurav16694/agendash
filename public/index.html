@@ -17,7 +17,7 @@
         <div class="sidebar-header">
           <h1 class="page-title"></h1>
           <div class="form-group">
-            <label for="overviewFilter">Filter by name</label>
+            <label for="overviewFilter">Filter by nameing</label>
             <input type="text" class="overview-filter form-control">
           </div>
           <div class="form-group">
@@ -87,7 +87,7 @@
             <span class="btn btn-default btn-success" data-action="save">Save</span>
             <span class="btn btn-default btn-warning" data-action="cancel">Cancel</span>
           </div>
-        </div>
+        </div>  
       </div>
     </div>
 
@@ -113,10 +113,11 @@
           <li data-state="completed"><a class="text-success" href="#">Completed<span class="label label-success pull-right"><%- completed %></span></a></li>
           <li data-state="failed"><a class="text-danger" href="#">Failed<span class="label label-danger pull-right"><%- failed %></span></a></li>
           <li data-state="repeating"><a class="text-info" href="#">Repeating<span class="label label-info pull-right"><%- repeating %></span></a></li>
+          <li data-state="disabled"><a class="text-disabled" href="#">Disabled<span class="label label-disabled pull-right"><%- disabled %></span></a></li>
+          <li data-state="upcoming"><a class="text-upcoming" href="#">Upcoming<span class="label label-upcoming pull-right"><%- upcoming %></span></a></li>
         </ul>
       </ul>
     </script>
-
     <script type="text/template" id="job-item-template">
       <td>
         <% if (repeating) { %><span class="label label-info"><i class="glyphicon glyphicon-repeat"></i> <%- job.repeatInterval %></span><% } %>
@@ -125,6 +126,9 @@
         <% if (running) { %><span class="label label-warning">Running</span><% } %>
         <% if (completed) { %><span class="label label-success">Completed</span><% } %>
         <% if (failed) { %><span class="label label-danger">Failed</span><% } %>
+        <% if (disabled) { %><span class="label label-disabled">Disabled</span><% } %>
+        <% if (upcoming) { %><span class="label label-upcoming">Upcoming</span><% } %>
+
       </td>
       <td>
         <%- job.name %>
@@ -146,6 +150,8 @@
           <% if (running) { %><span class="label label-warning">Running</span><% } %>
           <% if (completed) { %><span class="label label-success">Completed</span><% } %>
           <% if (failed) { %><span class="label label-danger">Failed</span><% } %>
+          <% if (disabled) { %><span class="label label-disabled">Disabled</span><% } %>
+          <% if (upcoming) { %><span class="label label-upcoming">Upcoming</span><% } %>
         </div>
         <div class="panel-body">
           <% if (job.lastRunAt) { %><p>Last run <time datetime="<%- moment(job.lastRunAt).toISOString() %>"><%- moment(job.lastRunAt).fromNow() %></time></p><% } %>

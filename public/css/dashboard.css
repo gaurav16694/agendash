@@ -92,3 +92,18 @@
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
+.label-disabled {
+  background-color: #504f8e
+
+}
+.label-upcoming {
+  background-color: #299a85
+}
+
+.text-disabled {
+  color: #504f8e
+
+}
+.text-upcoming {
+  color: #299a85
+}
